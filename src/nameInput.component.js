@@ -79,20 +79,15 @@ const Name = () => {
   
   const handleConfirmPassword = (e) => {
     setConfirmPassword(e.target.value)
-  }
-
-  const handlePasswordCheck = (e) => {
-  
-    if (password.length === confirmPassword.length){
-      if (password !== confirmPassword){
-        setPasswordCheck('Password does not match!!')
-      } else {
-        setPasswordCheck('Password match!!')
-      }
+    if (e.target.value.length === password.length){
+    if (e.target.value !== password) {
+      setPasswordCheck('Password does not match!!')
+     } else {
+      setPasswordCheck('Password match!!')
+     } 
     } else {
       setPasswordCheck('Password does not match!!')
     }
-    return
   }
 
   return (
@@ -142,16 +137,13 @@ const Name = () => {
       type="password"
       onChange = {handlePassword}
     />
-    {password}
     <TextField 
       id ="name-basic"
       label="Confirm Password"
       type="Password"
       onChange = {handleConfirmPassword}
-      onInput = {handlePasswordCheck}
       helperText = {passwordCheck}
     />
-    {confirmPassword}
   <p>User Details:</p>
   <p>Name:   {name}</p>
   <p>Email:  {email}</p>
@@ -165,3 +157,4 @@ const Name = () => {
 export default Name
 // git commit//
 //git commit2//
+//git commit3//
